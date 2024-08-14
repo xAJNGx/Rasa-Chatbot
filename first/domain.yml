@@ -1,0 +1,66 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_weather
+  - inform_city
+  - ask_temperature
+  - ask_humidity
+  - ask_wind
+  - ask_weather_description
+  - ask_full_weather_report
+  - user_feels_sad
+  - affirm
+  - bot_challenge
+
+entities:
+  - city
+  - GPE
+
+slots:
+  city:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: GPE
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm a weather bot. How can I help you today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+  utter_ask_city:
+    - text: "For which city would you like to know?"
+  
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://tenor.com/sMEecgRE0sl.gif"
+
+  utter_happy:
+    - text: "Great, carry on!"
+    
+actions:
+  - action_get_temperature
+  - action_get_humidity
+  - action_get_wind_info
+  - action_get_weather_description
+  - action_get_full_weather_report
+  - check_city_slot
+
+forms:
+  weather_form:
+    required_slots:
+      - city
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

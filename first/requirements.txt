@@ -1,0 +1,4 @@
+rasa==3.0.0
+spacy==3.2.0
+pydantic<2.0.0
+# python -m spacy download en_core_web_md 

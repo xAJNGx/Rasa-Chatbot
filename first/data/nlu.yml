@@ -1,0 +1,117 @@
+version: "3.1"
+
+nlu:
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+
+- intent: user_feels_sad
+  examples: |
+    - I feel sad
+    - I'm feeling down
+    - I'm upset
+    - I'm not happy
+
+- intent: affirm
+  examples: |
+    - yes
+    - sure
+    - definitely
+    - of course
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+    - have a nice day
+
+- intent: ask_weather
+  examples: |
+    - what's the weather like?
+    - how's the weather today?
+    - tell me about the weather
+
+- intent: inform_city
+  examples: |
+    - in [New York](GPE)
+    - for [London](GPE)
+    - [Tokyo](GPE)
+    - the weather in [Paris](GPE)
+    - how about [Berlin](GPE)?
+    - [Sydney](GPE) please
+    - I'm interested in [Moscow](GPE)
+    - What about [Cairo](GPE)?
+    - [Rio de Janeiro](GPE)
+    - Tell me about [Mumbai](GPE)
+    - [Kathmandu](GPE)
+    - the weather in [kathmandu](GPE)
+    - how about [Pokhara](GPE)?
+
+- intent: ask_temperature
+  examples: |
+    - What's the temperature in [New York](GPE)?
+    - How hot is it in [London](GPE)?
+    - Tell me the temperature in [Tokyo](GPE)
+    - What's the temperature in [kathmandu](GPE)?
+    - How hot is it in [Pokhara](GPE)?
+    - Tell me the temperature in [Chitwan](GPE)
+    - What's the current temperature?
+    - How cold is it outside?
+
+- intent: ask_humidity
+  examples: |
+    - What's the humidity in [Paris](GPE)?
+    - How humid is it in [Berlin](GPE)?
+    - Tell me about the humidity in [Sydney](GPE)
+    - What's the humidity in [Kathmandu](GPE)?
+    - How humid is it in [Pokhara](GPE)?
+    - Tell me about the humidity in [Chitwan](GPE)
+    - What's the current humidity level?
+    - Is it very humid today?
+
+- intent: ask_wind
+  examples: |
+    - How's the wind in [Moscow](GPE)?
+    - What's the wind speed in [Cairo](GPE)?
+    - Tell me about the wind in [Rio de Janeiro](GPE)
+    - What's the wind speed in [Kathmandu](GPE)?
+    - Tell me about the wind in [Chitwan](GPE)
+    - What's the wind speed in [Pokhara](GPE)?
+    - Tell me about the wind in [Mustang](GPE)
+    - Is it windy outside?
+    - What's the wind direction?
+
+- intent: ask_weather_description
+  examples: |
+    - What's the weather like in [Mumbai](GPE)?
+    - Describe the weather in [Bangkok](GPE)
+    - How's the sky in [Seoul](GPE)?
+    - Describe the weather in [Kathmandu](GPE)
+    - How's the sky in [Pokhara](GPE)?
+    - What are the current weather conditions?
+    - Is it cloudy or sunny?
+
+- intent: ask_full_weather_report
+  examples: |
+    - Give me a full weather report for [Amsterdam](GPE)
+    - I want all the weather details for [Toronto](GPE)
+    - Complete weather information for [Singapore](GPE)
+    - I want all the weather details for [Kathmandu](GPE)
+    - Complete weather information for [Pokhara](GPE)
+    - What's the overall weather situation?
+    - Can I get a comprehensive weather update?

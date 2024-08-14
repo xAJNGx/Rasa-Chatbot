@@ -1,0 +1,57 @@
+stories:
+- story: happy path 1 (full weather report)
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      what's the weather like?
+    intent: ask_weather
+  - action: utter_ask_city
+  - user: |
+      in New York
+    intent: inform_city
+  - slot_was_set:
+    - city: New York
+  - action: action_get_full_weather_report
+  - user: |
+      goodbye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path 2 (temperature)
+  steps:
+  - user: |
+      What's the temperature in London?
+    intent: ask_temperature
+  - slot_was_set:
+    - city: London
+  - action: action_get_temperature
+
+- story: happy path 3 (humidity)
+  steps:
+  - user: |
+      How's the humidity in Tokyo?
+    intent: ask_humidity
+  - slot_was_set:
+    - city: Tokyo
+  - action: action_get_humidity
+
+- story: happy path 4 (wind info)
+  steps:
+  - user: |
+      Tell me about the wind in Paris
+    intent: ask_wind
+  - slot_was_set:
+    - city: Paris
+  - action: action_get_wind_info
+
+- story: happy path 5 (weather description)
+  steps:
+  - user: |
+      What's the weather like in Berlin?
+    intent: ask_weather_description
+  - slot_was_set:
+    - city: Berlin
+  - action: action_get_weather_description

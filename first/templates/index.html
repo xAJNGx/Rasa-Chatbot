@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Rasa Chatbot with specific actions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #chat-container {
+            width: 350px;
+            height: 500px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-message, .bot-message {
+            max-width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 20px;
+            word-wrap: break-word;
+            display: inline-block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .user-message {
+            background-color: #0084ff;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #e4e6eb;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .error-message {
+            color: red;
+            font-style: italic;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        #user-input::placeholder {
+            color: #aaa;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-wrapper">
+        <h1>Weather Rasa Chatbot <br>with specific actions</h1>
+        <div id="chat-container"></div>
+        <input type="text" id="user-input" placeholder="Type your message here..." onkeypress="return enterPressed(event)">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function addMessage(message, isUser, isError = false) {
+            var messageDiv = $('<div>').addClass(isUser ? 'user-message' : 'bot-message').text(message);
+            if (isError) messageDiv.addClass('error-message');
+            $('#chat-container').append(messageDiv);
+            $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+        }
+
+        function sendMessage() {
+            var userMessage = $('#user-input').val();
+            if (userMessage.trim() === '') return;
+
+            addMessage(userMessage, true);
+            $('#user-input').val('');
+
+            $.ajax({
+                url: '/webhook',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ message: userMessage }),
+                success: function(data) {
+                    addMessage(data.response, false);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
+                    addMessage("Sorry, there was an error communicating with the server.", false, true);
+                }
+            });
+        }
+
+        function enterPressed(event) {
+            if (event.keyCode === 13) {
+                sendMessage();
+                return false;
+            }
+            return true;
+        }
+
+        // Initial bot greeting
+        addMessage("Hello! I'm a weather bot. How can I help you today?", false);
+    </script>
+</body>
+</html>
