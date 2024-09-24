@@ -94,12 +94,15 @@ Bot: Goodbye! Have a great day!
 Here are some screenshots of the weather bot in action:
 
 ![alt text](screenshots/image.png)
+
 *Weather Bot Homepage*
 
 ![alt text](screenshots/image-1.png)
+
 *Weather Information*
 
 ![alt text](screenshots/image-3.png)
+
 *Full Weather Report*
 
 ## Contact Me
