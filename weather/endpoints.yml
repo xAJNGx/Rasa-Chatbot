@@ -1,7 +1,0 @@
-action_endpoint:
-  url: "http://localhost:5055/webhook"
-
-# Configuration for the Rasa HTTP API
-rest:
-  # This enables the REST input channel to communicate with the Rasa server
-  url: "http://localhost:5005/webhooks/rest/webhook"
