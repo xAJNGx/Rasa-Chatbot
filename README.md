@@ -109,6 +109,6 @@ Here are some screenshots of the weather bot in action:
 
 If you have any questions or feedback, feel free to reach out to me:
 
-- Email: [ajngworks@gmail.com]
+- Email: ajngworks@gmail.com
 
 I'd be happy to assist you or discuss any improvements or new features you'd like to see in the weather bot.
