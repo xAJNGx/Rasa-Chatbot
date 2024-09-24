@@ -1,6 +1,18 @@
 # Weather Bot
 
-This is a weather bot built using Rasa, a popular open-source conversational AI framework. The bot is designed to provide users with information about the weather in different cities, including temperature, humidity, wind, and weather description.
+This is a weather bot built using the Rasa conversational AI framework. The bot is designed to provide users with information about the weather in different cities, including temperature, humidity, wind, and weather description.
+The bot utilizes the following Rasa pipeline components:
+
+- SpacyNLP: This component loads the en_core_web_md SpaCy language model, which provides advanced natural language processing capabilities.
+- SpacyTokenizer: This component uses the SpaCy tokenizer to split the user's input into meaningful tokens.
+- SpacyFeaturizer: This component uses the SpaCy library to generate word vectors, which are used as features for the machine learning models.
+- SpacyEntityExtractor: This component extracts entities, such as cities and countries (GPE - Geopolitical Entities), from the user's input.
+- CountVectorsFeaturizer: This component generates bag-of-words features from the user's input, which are used for text classification.
+- DIETClassifier: This component is responsible for both intent classification and entity recognition. It is trained for 100 epochs to achieve high accuracy.
+- FallbackClassifier: This component handles cases where the bot is not confident about the predicted intent or entity. It uses a threshold of 0.3 and an ambiguity threshold of 0.1 to determine when to trigger the fallback response.
+
+The bot uses the OpenWeatherMap API to fetch the weather data for the specified city. It supports a variety of intents, including greetings, weather queries, and user sentiment expressions.
+Users can interact with the bot through a web interface, and the bot's responses are generated dynamically based on the user's input and the available weather data.
 
 ## Features
 
